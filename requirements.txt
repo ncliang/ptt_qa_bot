@@ -1,0 +1,11 @@
+langchain
+openai
+chromadb
+tabulate
+pdf2image
+pytesseract
+libmagic
+urllib3==1.26.6
+requests
+beautifulsoup4
+html2text
