@@ -41,4 +41,4 @@ with gr.Blocks() as demo:
     submit_btn.click(fn=submit, inputs=question, outputs=[answer, sources], api_name="submit")
 
 
-demo.launch()
+demo.launch(inbrowser=True)
