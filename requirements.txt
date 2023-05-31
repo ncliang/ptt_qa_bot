@@ -15,3 +15,7 @@ tesseract
 
 # web
 gradio
+
+# paddleOCR
+paddleocr
+paddlepaddle
