@@ -1,6 +1,6 @@
 langchain
 openai
-chromadb
+chromadb==0.3.29
 tabulate
 pdf2image
 pytesseract
@@ -12,6 +12,7 @@ html2text
 unstructured
 tiktoken
 tesseract
+sentence_transformers
 
 # web
 gradio

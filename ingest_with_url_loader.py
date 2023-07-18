@@ -4,7 +4,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from langchain.document_loaders import UnstructuredURLLoader
-from langchain.embeddings import OpenAIEmbeddings
+from langchain.embeddings import OpenAIEmbeddings, HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 
@@ -71,10 +71,11 @@ loader = UnstructuredURLLoader(urls=urls)
 documents = loader.load()
 
 print("Splitting documents")
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=10)
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 texts = text_splitter.split_documents(documents)
 
-embeddings = OpenAIEmbeddings()
+embeddings = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-base")
+# embeddings = OpenAIEmbeddings()
 
 print("Creating vectorstore")
 db = Chroma.from_documents(texts, embeddings, persist_directory=args.persist_db_location)
